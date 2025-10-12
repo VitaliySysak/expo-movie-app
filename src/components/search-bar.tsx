@@ -1,5 +1,5 @@
-import React from 'react';
 import { cn } from '@/lib/utils';
+import React from 'react';
 import { Text, View } from 'react-native';
 
 interface Props {
@@ -7,15 +7,15 @@ interface Props {
   
 }
 
-const Search: React.FC<Props> = ({className}) => {
+const SearchBar: React.FC<Props> = ({className}) => {
 
   return (
     <View className={cn("", className)}>
       <Text>
-       Search
+       SearchBar
       </Text>
     </View>
   );
 };
 
-export default Search;
+export default SearchBar;

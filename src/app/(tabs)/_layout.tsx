@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { ImageBackground, Image, Text, View } from "react-native";
+import { Image, ImageBackground, Text, View } from "react-native";
 
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
@@ -9,12 +9,9 @@ function TabIcon({ focused, icon, title }: any) {
     return (
       <ImageBackground
         source={images.highlight}
-        className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden"
-      >
+        className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden">
         <Image source={icon} tintColor="#151312" className="size-5" />
-        <Text className="text-secondary text-base font-semibold ml-2">
-          {title}
-        </Text>
+        <Text className="text-secondary text-base font-semibold ml-2">{title}</Text>
       </ImageBackground>
     );
   }
@@ -48,16 +45,13 @@ export default function TabsLayout() {
           borderWidth: 1,
           borderColor: "#0F0D23",
         },
-      }}
-    >
+      }}>
       <Tabs.Screen
         name="index"
         options={{
           title: "index",
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={icons.home} title="Home" />
-          ),
+          tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={icons.home} title="Home" />,
         }}
       />
 
@@ -66,9 +60,7 @@ export default function TabsLayout() {
         options={{
           title: "Search",
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={icons.search} title="Search" />
-          ),
+          tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={icons.search} title="Search" />,
         }}
       />
 
@@ -77,9 +69,7 @@ export default function TabsLayout() {
         options={{
           title: "Save",
           headerShown: false,
-          tabBarIcon: ({ focused }) => ( 
-            <TabIcon focused={focused} icon={icons.save} title="Save" />
-          ),
+          tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={icons.save} title="Save" />,
         }}
       />
 
@@ -88,9 +78,7 @@ export default function TabsLayout() {
         options={{
           title: "Profile",
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={icons.person} title="Profile" />
-          ),
+          tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={icons.person} title="Profile" />,
         }}
       />
     </Tabs>
