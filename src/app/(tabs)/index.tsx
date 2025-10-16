@@ -1,3 +1,4 @@
+import MovieCard from "@/components/movie-card";
 import SearchBar from "@/components/search-bar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
@@ -9,7 +10,11 @@ import { ActivityIndicator, FlatList, Image, ScrollView, Text, View } from "reac
 export default function Home() {
   const router = useRouter();
 
-  const { data: movies, loading: moviesLoading, error: movieError } = useFetch(() => fetchPopularMovies({ query: "" }));
+  const {
+    data: movies,
+    loading: moviesLoading,
+    error: movieError,
+  } = useFetch(() => fetchPopularMovies({ query: "" }));
   return (
     <View className="flex-1 bg-primary">
       <Image source={images.bg} className="absolute w-full z-0" />
@@ -29,7 +34,7 @@ export default function Home() {
               <Text className="text-lg text-white font-bold mt-5 mb-3">Latest Movies</Text>
               <FlatList
                 data={movies}
-                renderItem={({ item }) => <Text className="text-white text-sm">{item.title}</Text>}
+                renderItem={({ item }) => <MovieCard {...item} />}
                 keyExtractor={(item) => item.id.toString()}
                 numColumns={3}
                 columnWrapperStyle={{
